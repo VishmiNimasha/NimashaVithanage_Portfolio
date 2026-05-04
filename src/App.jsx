@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
+const getAssetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 const navItems = [
   'Introduction',
   'Journal',
@@ -285,7 +287,7 @@ function App() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="/assets/CV.pdf"
+                href={getAssetUrl('/assets/CV.pdf')}
                 download="Nimasha_Vithanage_CV.pdf"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-bold text-slate-200 shadow-soft transition hover:bg-coral/80"
               >
@@ -303,7 +305,7 @@ function App() {
 
           <div className="overflow-hidden rounded-2xl bg-slate-800 shadow-soft">
             <img
-              src="/assets/profile.jpg"
+              src={getAssetUrl('/assets/profile.jpg')}
               alt="Nimasha Vithanage"
               className="w-full object-cover aspect-[4/5] object-top"
             />
@@ -530,7 +532,7 @@ function App() {
                 <div key={cert.title} className="overflow-hidden rounded-2xl bg-slate-900/5 border border-white/10 shadow-sm transition hover:-translate-y-1 hover:bg-slate-900/10">
                   <div className="aspect-[4/3] bg-slate-900/10">
                     <img
-                      src={cert.image}
+                      src={getAssetUrl(cert.image)}
                       alt={cert.title}
                       className="h-full w-full object-contain p-4"
                     />
